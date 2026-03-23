@@ -14,6 +14,21 @@
 
 Verify `{spec_file}` resolves to a non-empty path and the file exists on disk. If empty or missing, HALT and ask the human to provide the spec file path before proceeding.
 
+Verify deterministic handoff file exists at `{project-root}/artifacts/capsules.json`. If missing, HALT with:
+"Missing required design-system handoff file at {project-root}/artifacts/capsules.json. Run design-system first."
+
+Load `{project-root}/schemas/capsules.schema.json` and `{project-root}/schemas/capsule.json`, then validate the handoff payload:
+
+- Parse JSON and validate top-level shape against `capsules.schema.json`
+- Validate each item in `capsules` against `capsule.json`
+- Fail fast on first invalid state with a clear message containing:
+  - file path
+  - capsule index (for item errors)
+  - invalid field path
+  - expected vs actual type/value summary
+
+If validation passes, continue. If not, HALT and request a corrected capsules file.
+
 ## INSTRUCTIONS
 
 ### Baseline

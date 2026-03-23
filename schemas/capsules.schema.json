@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bmad-code-org/schemas/capsules.schema.json",
+  "title": "Capsules Collection",
+  "description": "Deterministic handoff payload persisted between design-system and execute.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["version", "generatedBy", "capsules"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "generatedBy": {
+      "type": "string",
+      "const": "design-system"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "capsules": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "./capsule.json"
+      }
+    }
+  }
+}
