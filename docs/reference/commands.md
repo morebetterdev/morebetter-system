@@ -101,6 +101,19 @@ Workflow skills run a structured, multi-step process without loading an agent pe
 
 See [Workflow Map](./workflow-map.md) for the complete workflow reference organized by phase.
 
+### Deterministic `design-system` → `execute` Handoff
+
+The UX design-system workflow step emits a validated capsules payload to:
+
+- `artifacts/capsules.json`
+
+Validation contract:
+
+- Collection schema: `schemas/capsules.schema.json`
+- Canonical capsule item schema: `schemas/capsule.json`
+
+The Quick Dev execute/implement step requires this file and fails fast when it is missing or invalid. Error output should include the file path, capsule index (when applicable), invalid field path, and expected versus actual type/value summary.
+
 ### Task and Tool Skills
 
 Tasks and tools are standalone operations that do not require an agent or workflow context.
