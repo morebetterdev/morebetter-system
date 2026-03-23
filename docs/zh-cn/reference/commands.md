@@ -142,6 +142,15 @@ bmad-help 我在 PRD 工作流上卡住了
 
 模块代码：`bmm`（敏捷套件）、`bmb`（构建器）、`tea`（测试架构师）、`cis`（创意智能）、`gds`（游戏开发工作室）。参见[模块](./modules.md)获取描述。
 
+## CLI 命令（支持 morebetter 品牌）
+
+CLI 现在提供了用于胶囊生成与执行的一等命令文件：
+
+- `morebetter design-system` —— 生成 design-system 胶囊产物。
+- `morebetter execute` —— 通过已配置的执行适配器执行胶囊。
+
+这些命令名直接注册在 CLI 命令加载器中，因此当二进制名称切换为 `morebetter` 后，可直接映射到 `design-system` 和 `execute`。
+
 ## 故障排除
 
 **安装后命令未出现。** 重启您的 IDE 或重新加载窗口。某些 IDE 会缓存命令列表，需要刷新才能获取新文件。

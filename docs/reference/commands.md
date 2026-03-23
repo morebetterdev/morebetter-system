@@ -138,6 +138,15 @@ The core module includes 11 built-in tools — reviews, compression, brainstormi
 
 All skills use the `bmad-` prefix followed by a descriptive name (e.g., `bmad-dev`, `bmad-create-prd`, `bmad-help`). See [Modules](./modules.md) for available modules.
 
+## CLI Commands (Rebrand-ready)
+
+The CLI now ships first-class command files for capsule generation and execution:
+
+- `morebetter design-system` — generates a design-system capsule artifact.
+- `morebetter execute` — executes a capsule through the configured execution adapter.
+
+These command names are registered directly in the CLI command loader, so once the binary is exposed as `morebetter`, invocation maps cleanly to `design-system` and `execute`.
+
 ## Troubleshooting
 
 **Skills not appearing after install.** Some platforms require skills to be explicitly enabled in settings. Check your IDE's documentation or ask your AI assistant how to enable skills. You may also need to restart your IDE or reload the window.
