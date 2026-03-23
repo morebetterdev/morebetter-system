@@ -125,6 +125,15 @@ Le module principal inclut 11 outils intégrés — revues, compression, brainst
 
 Tous les skills utilisent le préfixe `bmad-` suivi d'un nom descriptif (ex. `bmad-analyst`, `bmad-create-prd`, `bmad-help`). Consultez [Modules](./modules.md) pour les modules disponibles.
 
+## Commandes CLI (prêtes pour le rebranding)
+
+La CLI inclut maintenant des fichiers de commande natifs pour la génération et l'exécution de capsules :
+
+- `morebetter design-system` — génère un artefact capsule de design system.
+- `morebetter execute` — exécute une capsule via l'adaptateur d'exécution configuré.
+
+Ces noms de commande sont enregistrés directement dans le chargeur de commandes CLI. Une fois le binaire renommé en `morebetter`, l'invocation correspond directement à `design-system` et `execute`.
+
 ## Dépannage
 
 **Les skills n'apparaissent pas après l'installation.** Certaines plateformes nécessitent d'activer explicitement les skills dans les paramètres. Consultez la documentation de votre IDE ou demandez à votre assistant IA comment activer les skills. Vous devrez peut-être aussi redémarrer votre IDE ou recharger la fenêtre.

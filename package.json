@@ -21,7 +21,8 @@
   "main": "tools/cli/bmad-cli.js",
   "bin": {
     "bmad": "tools/bmad-npx-wrapper.js",
-    "bmad-method": "tools/bmad-npx-wrapper.js"
+    "bmad-method": "tools/bmad-npx-wrapper.js",
+    "morebetter": "tools/bmad-npx-wrapper.js"
   },
   "scripts": {
     "bmad:install": "node tools/cli/bmad-cli.js install",
