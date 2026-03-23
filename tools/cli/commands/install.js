@@ -8,7 +8,7 @@ const ui = new UI();
 
 module.exports = {
   command: 'install',
-  description: 'Install BMAD Core agents and tools',
+  description: 'Install MoreBetter Core agents and tools',
   options: [
     ['-d, --debug', 'Enable debug output for manifest generation'],
     ['--directory <path>', 'Installation directory (default: current directory)'],

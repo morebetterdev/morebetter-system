@@ -138,7 +138,10 @@ class UI {
       });
 
       if (proceed === 'cancel') {
-        await prompts.note('1. Delete the existing bmad folder in your project\n' + "2. Run 'bmad install' again", 'To do a fresh install');
+        await prompts.note(
+          '1. Delete the existing bmad folder in your project\n' + "2. Run 'morebetter install' again",
+          'To do a fresh install',
+        );
         process.exit(0);
         return;
       }
@@ -1775,7 +1778,7 @@ class UI {
 
     if (proceed === 'cancel') {
       await prompts.note(
-        `1. Delete the "${bmadFolderName}/" folder in your project\n` + "2. Run 'bmad install' again",
+        `1. Delete the "${bmadFolderName}/" folder in your project\n` + "2. Run 'morebetter install' again",
         'To do a fresh install',
       );
     }
@@ -1888,7 +1891,7 @@ class UI {
     // Update summary
     if (availableUpdates.length > 0) {
       await prompts.log.warn(`${availableUpdates.length} update(s) available`);
-      await prompts.log.message('Run \'bmad install\' and select "Quick Update" to update');
+      await prompts.log.message('Run \'morebetter install\' and select "Quick Update" to update');
     } else {
       await prompts.log.success('All modules are up to date');
     }

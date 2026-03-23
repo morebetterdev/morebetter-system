@@ -7,9 +7,9 @@ const installer = new Installer();
 
 module.exports = {
   command: 'uninstall',
-  description: 'Remove BMAD installation from the current project',
+  description: 'Remove MoreBetter installation from the current project',
   options: [
-    ['-y, --yes', 'Remove all BMAD components without prompting (preserves user artifacts)'],
+    ['-y, --yes', 'Remove all MoreBetter components without prompting (preserves user artifacts)'],
     ['--directory <path>', 'Project directory (default: current directory)'],
   ],
   action: async (options) => {
@@ -26,7 +26,7 @@ module.exports = {
         // Interactive: ask user which directory to uninstall from
         // select() handles cancellation internally (exits process)
         const dirChoice = await prompts.select({
-          message: 'Where do you want to uninstall BMAD from?',
+          message: 'Where do you want to uninstall MoreBetter from?',
           choices: [
             { value: 'cwd', name: `Current directory (${process.cwd()})` },
             { value: 'other', name: 'Another directory...' },
@@ -57,7 +57,7 @@ module.exports = {
       const { bmadDir } = await installer.findBmadDir(projectDir);
 
       if (!(await fs.pathExists(bmadDir))) {
-        await prompts.log.warn('No BMAD installation found.');
+        await prompts.log.warn('No MoreBetter installation found.');
         process.exit(0);
       }
 
@@ -68,7 +68,7 @@ module.exports = {
 
       const outputFolder = await installer.getOutputFolder(projectDir);
 
-      await prompts.intro('BMAD Uninstall');
+      await prompts.intro('MoreBetter Uninstall');
       await prompts.note(`Version: ${version}\nModules: ${modules}\nIDE integrations: ${ides}`, 'Current Installation');
 
       let removeModules = true;
@@ -82,7 +82,7 @@ module.exports = {
           options: [
             {
               value: 'modules',
-              label: `BMAD Modules & data (${installer.bmadFolderName}/)`,
+              label: `MoreBetter modules & data (${installer.bmadFolderName}/)`,
               hint: 'Core installation, agents, workflows, config',
             },
             { value: 'ide', label: 'IDE integrations', hint: ides || 'No IDEs configured' },
@@ -136,7 +136,7 @@ module.exports = {
       // Phase 3: BMAD modules & data (last — other phases may need _bmad/)
       if (removeModules) {
         const s = await prompts.spinner();
-        s.start(`Removing BMAD modules & data (${installer.bmadFolderName}/)...`);
+        s.start(`Removing MoreBetter modules & data (${installer.bmadFolderName}/)...`);
         await installer.uninstallModules(projectDir);
         s.stop('Modules & data removed');
       }
@@ -148,7 +148,7 @@ module.exports = {
       if (!removeOutputFolder) summary.push(`User artifacts preserved in ${outputFolder}/`);
 
       await prompts.note(summary.join('\n'), 'Summary');
-      await prompts.outro('To reinstall, run: npx bmad-method install');
+      await prompts.outro('To reinstall, run: npx morebetter-system install');
 
       process.exit(0);
     } catch (error) {
