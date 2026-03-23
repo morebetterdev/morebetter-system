@@ -14,7 +14,7 @@ if (process.stdin?.setMaxListeners) {
 
 // Check for updates - do this asynchronously so it doesn't block startup
 const packageJson = require('../../package.json');
-const packageName = 'bmad-method';
+const packageName = 'morebetter-system';
 checkForUpdate().catch(() => {
   // Silently ignore errors - version check is best-effort
 });
@@ -41,7 +41,7 @@ async function checkForUpdate() {
         `You are using version ${packageJson.version} but ${result} is available.`,
         '',
         'To update, exit and first run:',
-        `  npm cache clean --force && npx bmad-method@${tag} install`,
+        `  npm cache clean --force && npx morebetter-system@${tag} install`,
       ].join('\n');
       await prompts.box(updateMsg, 'Update Available', {
         rounded: true,
@@ -82,7 +82,7 @@ for (const file of commandFiles) {
 }
 
 // Set up main program
-program.version(packageJson.version).description('BMAD Core CLI - Universal AI agent framework');
+program.version(packageJson.version).description('MoreBetter Core CLI - Universal AI agent framework');
 
 // Register all commands
 for (const [name, cmd] of Object.entries(commands)) {

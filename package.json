@@ -1,8 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
-  "name": "bmad-method",
+  "name": "morebetter-system",
   "version": "6.2.0",
-  "description": "Breakthrough Method of Agile AI-driven Development",
+  "description": "MoreBetter System - Universal AI agent framework",
   "keywords": [
     "agile",
     "ai",
@@ -14,19 +14,20 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bmad-code-org/BMAD-METHOD.git"
+    "url": "git+https://github.com/morebetter-org/morebetter-system.git"
   },
   "license": "MIT",
   "author": "Brian (BMad) Madison",
-  "main": "tools/cli/bmad-cli.js",
+  "main": "tools/cli/morebetter-cli.js",
   "bin": {
-    "bmad": "tools/bmad-npx-wrapper.js",
-    "bmad-method": "tools/bmad-npx-wrapper.js",
-    "morebetter": "tools/bmad-npx-wrapper.js"
+    "bmad": "tools/morebetter-npx-wrapper.js",
+    "bmad-method": "tools/morebetter-npx-wrapper.js",
+    "morebetter": "tools/morebetter-npx-wrapper.js",
+    "morebetter-system": "tools/morebetter-npx-wrapper.js"
   },
   "scripts": {
-    "bmad:install": "node tools/cli/bmad-cli.js install",
-    "bmad:uninstall": "node tools/cli/bmad-cli.js uninstall",
+    "bmad:install": "node tools/cli/morebetter-cli.js install",
+    "bmad:uninstall": "node tools/cli/morebetter-cli.js uninstall",
     "docs:build": "node tools/build-docs.mjs",
     "docs:dev": "astro dev --root website",
     "docs:fix-links": "node tools/fix-doc-links.js",
@@ -35,10 +36,13 @@
     "format:check": "prettier --check \"**/*.{js,cjs,mjs,json,yaml}\"",
     "format:fix": "prettier --write \"**/*.{js,cjs,mjs,json,yaml}\"",
     "format:fix:staged": "prettier --write",
-    "install:bmad": "node tools/cli/bmad-cli.js install",
+    "install:bmad": "node tools/cli/morebetter-cli.js install",
+    "install:morebetter": "node tools/cli/morebetter-cli.js install",
     "lint": "eslint . --ext .js,.cjs,.mjs,.yaml --max-warnings=0",
     "lint:fix": "eslint . --ext .js,.cjs,.mjs,.yaml --fix",
     "lint:md": "markdownlint-cli2 \"**/*.md\"",
+    "morebetter:install": "node tools/cli/morebetter-cli.js install",
+    "morebetter:uninstall": "node tools/cli/morebetter-cli.js uninstall",
     "prepare": "command -v husky >/dev/null 2>&1 && husky || exit 0",
     "quality": "npm run format:check && npm run lint && npm run lint:md && npm run docs:build && npm run test:install && npm run validate:refs && npm run validate:skills",
     "rebundle": "node tools/cli/bundlers/bundle-web.js rebundle",

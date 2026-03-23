@@ -42,6 +42,9 @@ This step will generate content and present choices:
 - Platform requirements from step 3 inform design system choice
 - Inspiration patterns from step 5 guide design system selection
 - Focus on choosing foundation for consistent design
+- Deterministic handoff target is `{project-root}/artifacts/capsules.json`
+- Capsule item schema is `{project-root}/schemas/capsule.json`
+- Capsule collection schema is `{project-root}/schemas/capsules.schema.json`
 
 ## YOUR TASK:
 
@@ -194,6 +197,36 @@ Show the generated design system content and present choices:
 [P] Party Mode - Bring technical perspectives on design systems
 [C] Continue - Save this to the document and move to defining experience
 
+### 7.1 Build Deterministic Capsules Payload
+
+Before saving, build a deterministic JSON payload for implementation handoff:
+
+```json
+{
+  "version": "1.0",
+  "generatedBy": "design-system",
+  "generatedAt": "<ISO-8601 UTC timestamp>",
+  "capsules": [
+    {
+      "capsuleId": "kebab-case-id",
+      "kind": "design-system-choice | design-token | component-guideline | accessibility-requirement | implementation-constraint",
+      "title": "Short title",
+      "summary": "Actionable summary for execution",
+      "sourceCommand": "design-system",
+      "priority": "must | should | could",
+      "references": ["optional refs"],
+      "metadata": {}
+    }
+  ]
+}
+```
+
+Validation requirements:
+
+- Validate each capsule object against `{project-root}/schemas/capsule.json`.
+- Validate the full payload against `{project-root}/schemas/capsules.schema.json`.
+- If validation fails, STOP and show clear field-level errors (capsule index, field, expected shape). Do not continue until corrected.
+
 ### 8. Handle Menu Selection
 
 #### If 'A' (Advanced Elicitation):
@@ -216,6 +249,9 @@ Show the generated design system content and present choices:
 
 - Append the final content to `{planning_artifacts}/ux-design-specification.md`
 - Update frontmatter: append step to end of stepsCompleted array
+- Ensure `{project-root}/artifacts` exists
+- Persist the validated capsules payload to `{project-root}/artifacts/capsules.json`
+- If write fails, STOP and report a clear error that includes the expected path
 - Load `./step-07-defining-experience.md`
 
 ## APPEND TO DOCUMENT:

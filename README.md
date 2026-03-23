@@ -70,6 +70,15 @@ BMad Method extends with official modules for specialized domains. Available dur
 
 [BMad Method Docs Site](https://docs.bmad-method.org) — Tutorials, guides, concepts, and reference
 
+### Deterministic Handoff Capsules
+
+The UX `design-system` flow now writes a deterministic handoff payload to `artifacts/capsules.json` at the project root. The payload must validate against:
+
+- `schemas/capsule.json` (canonical capsule item schema)
+- `schemas/capsules.schema.json` (collection schema)
+
+The Quick Dev `execute`/implementation flow reads `artifacts/capsules.json`, validates collection + item shape, and fails fast with clear field-level errors if the file is missing or invalid.
+
 **Quick links:**
 - [Getting Started Tutorial](https://docs.bmad-method.org/tutorials/getting-started/)
 - [Upgrading from Previous Versions](https://docs.bmad-method.org/how-to/upgrade-to-v6/)
