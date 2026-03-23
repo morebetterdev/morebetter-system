@@ -8,7 +8,7 @@ const fs = require('fs-extra');
 function findProjectRoot(startPath = __dirname) {
   let currentPath = path.resolve(startPath);
 
-  // Keep going up until we find package.json with bmad-method
+  // Keep going up until we find package.json with morebetter-system (or legacy bmad-method)
   while (currentPath !== path.dirname(currentPath)) {
     const packagePath = path.join(currentPath, 'package.json');
 
@@ -16,7 +16,7 @@ function findProjectRoot(startPath = __dirname) {
       try {
         const pkg = fs.readJsonSync(packagePath);
         // Check if this is the BMAD project
-        if (pkg.name === 'bmad-method' || fs.existsSync(path.join(currentPath, 'src', 'core-skills'))) {
+        if (pkg.name === 'morebetter-system' || pkg.name === 'bmad-method' || fs.existsSync(path.join(currentPath, 'src', 'core-skills'))) {
           return currentPath;
         }
       } catch {
